@@ -1,0 +1,10 @@
+# Bandit configuration file
+# For more info: https://bandit.readthedocs.io/
+
+[bandit]
+# Test ID exclusions
+exclude_dirs = ['tests', '.git', 'instance', 'htmlcov', '__pycache__']
+# Severity level: LOW, MEDIUM, HIGH
+severity_level = MEDIUM
+# Confidence level: LOW, MEDIUM, HIGH
+confidence_level = MEDIUM
