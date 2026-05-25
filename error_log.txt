@@ -1798,3 +1798,1194 @@ sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint fail
 [SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
 [parameters: ('Phone', 30000.0, 3, None)]
 (Background on this error at: https://sqlalche.me/e/20/gkpj)
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5
+After conversion: quantity=5
+Created product object
+Added to session
+EXCEPTION CAUGHT: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Laptop', 50000.0, 5, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: product.category
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Unit_testing_eShipz\ecommerce_api\app.py", line 130, in add_product
+    db.session.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\scoping.py", line 597, in commit
+    return self._proxied.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4467, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Laptop', 50000.0, 5, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+============================================================
+REQUEST STARTED
+Got JSON data: {'name': 'Laptop'}
+name=Laptop, price=None, quantity=None
+============================================================
+REQUEST STARTED
+Got JSON data: {}
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': 'abc', 'quantity': 5}
+name=Laptop, price=abc, quantity=5
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': -100, 'quantity': 5}
+name=Laptop, price=-100, quantity=5
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': 1000, 'quantity': -1}
+name=Laptop, price=1000, quantity=-1
+After conversion: quantity=-1
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': '', 'price': 1000, 'quantity': 2}
+name=, price=1000, quantity=2
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Phone', 'price': 30000, 'quantity': 2}
+name=Phone, price=30000, quantity=2
+After conversion: quantity=2
+Created product object
+Added to session
+EXCEPTION CAUGHT: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Phone', 30000.0, 2, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: product.category
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Unit_testing_eShipz\ecommerce_api\app.py", line 130, in add_product
+    db.session.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\scoping.py", line 597, in commit
+    return self._proxied.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4467, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Phone', 30000.0, 2, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Phone', 'price': 30000, 'quantity': 2}
+name=Phone, price=30000, quantity=2
+After conversion: quantity=2
+Created product object
+Added to session
+EXCEPTION CAUGHT: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Phone', 30000.0, 2, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: product.category
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Unit_testing_eShipz\ecommerce_api\app.py", line 130, in add_product
+    db.session.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\scoping.py", line 597, in commit
+    return self._proxied.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4467, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Phone', 30000.0, 2, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Tablet', 'price': 25000, 'quantity': 4}
+name=Tablet, price=25000, quantity=4
+After conversion: quantity=4
+Created product object
+Added to session
+EXCEPTION CAUGHT: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Tablet', 25000.0, 4, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: product.category
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Unit_testing_eShipz\ecommerce_api\app.py", line 130, in add_product
+    db.session.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\scoping.py", line 597, in commit
+    return self._proxied.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4467, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Tablet', 25000.0, 4, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Accessories', 'name': 'Mouse', 'price': 500, 'quantity': 10}
+name=Mouse, price=500, quantity=10
+After conversion: quantity=10
+Created product object
+Added to session
+EXCEPTION CAUGHT: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Mouse', 500.0, 10, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: product.category
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Unit_testing_eShipz\ecommerce_api\app.py", line 130, in add_product
+    db.session.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\scoping.py", line 597, in commit
+    return self._proxied.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4467, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Mouse', 500.0, 10, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Accessories', 'name': 'Keyboard', 'price': 1500, 'quantity': 5}
+name=Keyboard, price=1500, quantity=5
+After conversion: quantity=5
+Created product object
+Added to session
+EXCEPTION CAUGHT: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Keyboard', 1500.0, 5, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: product.category
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Unit_testing_eShipz\ecommerce_api\app.py", line 130, in add_product
+    db.session.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\scoping.py", line 597, in commit
+    return self._proxied.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4467, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Keyboard', 1500.0, 5, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Monitor', 'price': 12000, 'quantity': 2}
+name=Monitor, price=12000, quantity=2
+After conversion: quantity=2
+Created product object
+Added to session
+EXCEPTION CAUGHT: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Monitor', 12000.0, 2, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: product.category
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Unit_testing_eShipz\ecommerce_api\app.py", line 130, in add_product
+    db.session.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\scoping.py", line 597, in commit
+    return self._proxied.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4467, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Monitor', 12000.0, 2, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 123, 'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5
+After conversion: quantity=5
+Created product object
+Added to session
+EXCEPTION CAUGHT: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Laptop', 50000.0, 5, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: product.category
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Unit_testing_eShipz\ecommerce_api\app.py", line 130, in add_product
+    db.session.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\scoping.py", line 597, in commit
+    return self._proxied.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4467, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Laptop', 50000.0, 5, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': '', 'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5
+After conversion: quantity=5
+Created product object
+Added to session
+EXCEPTION CAUGHT: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Laptop', 50000.0, 5, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: product.category
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Unit_testing_eShipz\ecommerce_api\app.py", line 130, in add_product
+    db.session.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\scoping.py", line 597, in commit
+    return self._proxied.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4467, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Laptop', 50000.0, 5, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+============================================================
+REQUEST STARTED
+Got JSON data: {'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5
+After conversion: quantity=5
+Created product object
+Added to session
+EXCEPTION CAUGHT: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Laptop', 50000.0, 5, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: product.category
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Unit_testing_eShipz\ecommerce_api\app.py", line 130, in add_product
+    db.session.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\scoping.py", line 597, in commit
+    return self._proxied.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4467, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Laptop', 50000.0, 5, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5
+After conversion: quantity=5
+Created product object
+Added to session
+EXCEPTION CAUGHT: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Laptop', 50000.0, 5, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: product.category
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Unit_testing_eShipz\ecommerce_api\app.py", line 130, in add_product
+    db.session.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\scoping.py", line 597, in commit
+    return self._proxied.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4467, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Laptop', 50000.0, 5, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': '  Mobile Devices  ', 'name': 'Phone', 'price': 30000, 'quantity': 3}
+name=Phone, price=30000, quantity=3
+After conversion: quantity=3
+Created product object
+Added to session
+EXCEPTION CAUGHT: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Phone', 30000.0, 3, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: product.category
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Unit_testing_eShipz\ecommerce_api\app.py", line 130, in add_product
+    db.session.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\scoping.py", line 597, in commit
+    return self._proxied.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4467, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Phone', 30000.0, 3, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5
+After conversion: quantity=5
+Created product object
+Added to session
+EXCEPTION CAUGHT: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Laptop', 50000.0, 5, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: NOT NULL constraint failed: product.category
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Unit_testing_eShipz\ecommerce_api\app.py", line 130, in add_product
+    db.session.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\scoping.py", line 597, in commit
+    return self._proxied.commit()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4467, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\util\langhelpers.py", line 121, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\sql\elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\nivas\AppData\Local\Programs\Python\Python39\lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint failed: product.category
+[SQL: INSERT INTO product (name, price, quantity, category) VALUES (?, ?, ?, ?)]
+[parameters: ('Laptop', 50000.0, 5, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5, category=Electronics
+After conversion: quantity=5
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5, category=Electronics
+After conversion: quantity=5
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'name': 'Laptop'}
+name=Laptop, price=None, quantity=None, category=None
+============================================================
+REQUEST STARTED
+Got JSON data: {}
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': 'abc', 'quantity': 5}
+name=Laptop, price=abc, quantity=5, category=Electronics
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': -100, 'quantity': 5}
+name=Laptop, price=-100, quantity=5, category=Electronics
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': 1000, 'quantity': -1}
+name=Laptop, price=1000, quantity=-1, category=Electronics
+After conversion: quantity=-1
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': '', 'price': 1000, 'quantity': 2}
+name=, price=1000, quantity=2, category=Electronics
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Phone', 'price': 30000, 'quantity': 2}
+name=Phone, price=30000, quantity=2, category=Electronics
+After conversion: quantity=2
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Phone', 'price': 30000, 'quantity': 2}
+name=Phone, price=30000, quantity=2, category=Electronics
+After conversion: quantity=2
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Tablet', 'price': 25000, 'quantity': 4}
+name=Tablet, price=25000, quantity=4, category=Electronics
+After conversion: quantity=4
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Accessories', 'name': 'Mouse', 'price': 500, 'quantity': 10}
+name=Mouse, price=500, quantity=10, category=Accessories
+After conversion: quantity=10
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Accessories', 'name': 'Keyboard', 'price': 1500, 'quantity': 5}
+name=Keyboard, price=1500, quantity=5, category=Accessories
+After conversion: quantity=5
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Monitor', 'price': 12000, 'quantity': 2}
+name=Monitor, price=12000, quantity=2, category=Electronics
+After conversion: quantity=2
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 123, 'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5, category=123
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': '', 'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5, category=
+============================================================
+REQUEST STARTED
+Got JSON data: {'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5, category=None
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5, category=Electronics
+After conversion: quantity=5
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': '  Mobile Devices  ', 'name': 'Phone', 'price': 30000, 'quantity': 3}
+name=Phone, price=30000, quantity=3, category=  Mobile Devices  
+After conversion: quantity=3
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5, category=Electronics
+After conversion: quantity=5
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'name': 'Laptop'}
+name=Laptop, price=None, quantity=None, category=None
+============================================================
+REQUEST STARTED
+Got JSON data: {}
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': 'abc', 'quantity': 5}
+name=Laptop, price=abc, quantity=5, category=Electronics
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': -100, 'quantity': 5}
+name=Laptop, price=-100, quantity=5, category=Electronics
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': 1000, 'quantity': -1}
+name=Laptop, price=1000, quantity=-1, category=Electronics
+After conversion: quantity=-1
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': '', 'price': 1000, 'quantity': 2}
+name=, price=1000, quantity=2, category=Electronics
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Phone', 'price': 30000, 'quantity': 2}
+name=Phone, price=30000, quantity=2, category=Electronics
+After conversion: quantity=2
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Phone', 'price': 30000, 'quantity': 2}
+name=Phone, price=30000, quantity=2, category=Electronics
+After conversion: quantity=2
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Tablet', 'price': 25000, 'quantity': 4}
+name=Tablet, price=25000, quantity=4, category=Electronics
+After conversion: quantity=4
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Accessories', 'name': 'Mouse', 'price': 500, 'quantity': 10}
+name=Mouse, price=500, quantity=10, category=Accessories
+After conversion: quantity=10
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Accessories', 'name': 'Keyboard', 'price': 1500, 'quantity': 5}
+name=Keyboard, price=1500, quantity=5, category=Accessories
+After conversion: quantity=5
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Monitor', 'price': 12000, 'quantity': 2}
+name=Monitor, price=12000, quantity=2, category=Electronics
+After conversion: quantity=2
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 123, 'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5, category=123
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': '', 'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5, category=
+============================================================
+REQUEST STARTED
+Got JSON data: {'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5, category=None
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5, category=Electronics
+After conversion: quantity=5
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': '  Mobile Devices  ', 'name': 'Phone', 'price': 30000, 'quantity': 3}
+name=Phone, price=30000, quantity=3, category=  Mobile Devices  
+After conversion: quantity=3
+Created product object
+Added to session
+Committed to database

@@ -53,14 +53,15 @@ def add_product():
         name = data.get("name")
         price = data.get("price")
         quantity = data.get("quantity")
+        category = data.get("category")
 
         with open('error_log.txt', 'a') as f:
-            f.write(f"name={name}, price={price}, quantity={quantity}\n")
+            f.write(f"name={name}, price={price}, quantity={quantity}, category={category}\n")
             f.flush()
 
         # VALIDATIONS
 
-        if name is None or price is None or quantity is None:
+        if name is None or price is None or quantity is None or category is None:
             return jsonify({
                 "error": "All fields are required"
             }), 400
@@ -73,6 +74,16 @@ def add_product():
         if len(name.strip()) == 0:
             return jsonify({
                 "error": "Name cannot be empty"
+            }), 400
+
+        if not isinstance(category, str):
+            return jsonify({
+                "error": "Category must be string"
+            }), 400
+
+        if len(category.strip()) == 0:
+            return jsonify({
+                "error": "Category cannot be empty"
             }), 400
 
         if not isinstance(price, (int, float)):
@@ -114,7 +125,8 @@ def add_product():
         product = Product(
             name=name.strip(),
             price=price,
-            quantity=quantity
+            quantity=quantity,
+            category=category.strip()
         )
 
         with open('error_log.txt', 'a') as f:
