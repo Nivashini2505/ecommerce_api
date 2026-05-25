@@ -14,7 +14,7 @@ jobs:
         python-version: ['3.9', '3.10', '3.11']
     
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v4
@@ -43,7 +43,7 @@ jobs:
     
     - name: Archive coverage reports
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: coverage-report-${{ matrix.python-version }}
         path: htmlcov/
@@ -52,7 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -69,7 +69,7 @@ jobs:
     
     - name: Archive ruff report
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: ruff-report
         path: ruff_report.json
@@ -78,7 +78,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -100,7 +100,7 @@ jobs:
     
     - name: Archive bandit report
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: bandit-report
         path: |
@@ -113,10 +113,10 @@ jobs:
     needs: [tests-and-coverage, ruff-lint, bandit-security]
     
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Download all artifacts
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
     
     - name: Comment PR with analysis results
       uses: actions/github-script@v6
