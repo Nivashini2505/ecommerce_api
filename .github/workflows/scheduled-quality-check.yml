@@ -1,0 +1,57 @@
+name: Scheduled Code Quality Check
+
+on:
+  schedule:
+    # Run every day at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  quality-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Run all quality checks
+      run: |
+        echo "=== Running Coverage ===" 
+        coverage run -m pytest test_api.py
+        coverage report
+        
+        echo ""
+        echo "=== Running Ruff Lint ===" 
+        ruff check . || true
+        
+        echo ""
+        echo "=== Running Bandit Security Check ===" 
+        bandit -r . -ll || true
+    
+    - name: Generate full reports
+      if: always()
+      run: |
+        coverage html
+        coverage json
+        ruff check . --output-format=json > ruff_report.json || true
+        bandit -r . -ll -f json -o bandit_report.json || true
+    
+    - name: Upload all reports
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: quality-reports
+        path: |
+          htmlcov/
+          ruff_report.json
+          bandit_report.json
+          .coverage

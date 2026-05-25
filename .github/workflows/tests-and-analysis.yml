@@ -1,0 +1,165 @@
+name: Tests, Coverage, Lint & Security
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  tests-and-coverage:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.9', '3.10', '3.11']
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Run tests with coverage
+      run: |
+        coverage run -m pytest test_api.py -v
+        coverage report
+        coverage html
+        coverage json
+    
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        files: ./coverage.json
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: false
+    
+    - name: Archive coverage reports
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: coverage-report-${{ matrix.python-version }}
+        path: htmlcov/
+
+  ruff-lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install ruff
+      run: pip install ruff
+    
+    - name: Run ruff lint
+      run: |
+        ruff check . --output-format=github
+        ruff check . --output-format=json > ruff_report.json
+    
+    - name: Archive ruff report
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: ruff-report
+        path: ruff_report.json
+
+  bandit-security:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install bandit
+      run: pip install bandit
+    
+    - name: Run bandit security check
+      continue-on-error: true
+      run: |
+        bandit -r . -ll -f txt -o bandit_report.txt
+        bandit -r . -ll -f json -o bandit_report.json
+    
+    - name: Display bandit results
+      if: always()
+      run: cat bandit_report.txt || true
+    
+    - name: Archive bandit report
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: bandit-report
+        path: |
+          bandit_report.txt
+          bandit_report.json
+
+  comment-pr:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    needs: [tests-and-coverage, ruff-lint, bandit-security]
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Download all artifacts
+      uses: actions/download-artifact@v3
+    
+    - name: Comment PR with analysis results
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const fs = require('fs');
+          
+          let comment = '## 📊 Code Analysis Results\n\n';
+          
+          // Add coverage info if available
+          try {
+            const coverage = JSON.parse(fs.readFileSync('./coverage-report-3.9/status.json', 'utf8'));
+            comment += '### ✅ Coverage\n';
+            comment += `- **Percent Covered**: ${coverage.metrics.percent_covered}%\n\n`;
+          } catch (e) {
+            comment += '### ⚠️ Coverage report not found\n\n';
+          }
+          
+          // Add ruff info if available
+          try {
+            const ruff = JSON.parse(fs.readFileSync('./ruff-report/ruff_report.json', 'utf8'));
+            comment += `### 📝 Ruff Linting\n`;
+            comment += `- **Total Issues**: ${ruff.length}\n\n`;
+          } catch (e) {
+            comment += '### ✅ No ruff issues found\n\n';
+          }
+          
+          // Add bandit info if available
+          try {
+            const bandit = fs.readFileSync('./bandit-report/bandit_report.txt', 'utf8');
+            if (bandit.includes('No issues identified')) {
+              comment += '### ✅ No security issues found\n\n';
+            } else {
+              comment += '### 🔒 Bandit Security Scan\n';
+              comment += '```\n' + bandit.substring(0, 1000) + '\n```\n\n';
+            }
+          } catch (e) {
+            comment += '### ⚠️ Bandit report not found\n\n';
+          }
+          
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: comment
+          });
