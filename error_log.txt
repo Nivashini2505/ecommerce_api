@@ -2989,3 +2989,213 @@ After conversion: quantity=3
 Created product object
 Added to session
 Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5, category=Electronics
+After conversion: quantity=5
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'name': 'Laptop'}
+name=Laptop, price=None, quantity=None, category=None
+============================================================
+REQUEST STARTED
+Got JSON data: {}
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': 'abc', 'quantity': 5}
+name=Laptop, price=abc, quantity=5, category=Electronics
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': -100, 'quantity': 5}
+name=Laptop, price=-100, quantity=5, category=Electronics
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': 1000, 'quantity': -1}
+name=Laptop, price=1000, quantity=-1, category=Electronics
+After conversion: quantity=-1
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': '', 'price': 1000, 'quantity': 2}
+name=, price=1000, quantity=2, category=Electronics
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Phone', 'price': 30000, 'quantity': 2}
+name=Phone, price=30000, quantity=2, category=Electronics
+After conversion: quantity=2
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Phone', 'price': 30000, 'quantity': 2}
+name=Phone, price=30000, quantity=2, category=Electronics
+After conversion: quantity=2
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Tablet', 'price': 25000, 'quantity': 4}
+name=Tablet, price=25000, quantity=4, category=Electronics
+After conversion: quantity=4
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Accessories', 'name': 'Mouse', 'price': 500, 'quantity': 10}
+name=Mouse, price=500, quantity=10, category=Accessories
+After conversion: quantity=10
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Accessories', 'name': 'Keyboard', 'price': 1500, 'quantity': 5}
+name=Keyboard, price=1500, quantity=5, category=Accessories
+After conversion: quantity=5
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Monitor', 'price': 12000, 'quantity': 2}
+name=Monitor, price=12000, quantity=2, category=Electronics
+After conversion: quantity=2
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 123, 'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5, category=123
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': '', 'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5, category=
+============================================================
+REQUEST STARTED
+Got JSON data: {'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5, category=None
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5, category=Electronics
+After conversion: quantity=5
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': '  Mobile Devices  ', 'name': 'Phone', 'price': 30000, 'quantity': 3}
+name=Phone, price=30000, quantity=3, category=  Mobile Devices  
+After conversion: quantity=3
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5, category=Electronics
+After conversion: quantity=5
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'name': 'Laptop'}
+name=Laptop, price=None, quantity=None, category=None
+============================================================
+REQUEST STARTED
+Got JSON data: {}
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': 'abc', 'quantity': 5}
+name=Laptop, price=abc, quantity=5, category=Electronics
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': -100, 'quantity': 5}
+name=Laptop, price=-100, quantity=5, category=Electronics
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': 1000, 'quantity': -1}
+name=Laptop, price=1000, quantity=-1, category=Electronics
+After conversion: quantity=-1
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': '', 'price': 1000, 'quantity': 2}
+name=, price=1000, quantity=2, category=Electronics
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Phone', 'price': 30000, 'quantity': 2}
+name=Phone, price=30000, quantity=2, category=Electronics
+After conversion: quantity=2
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Phone', 'price': 30000, 'quantity': 2}
+name=Phone, price=30000, quantity=2, category=Electronics
+After conversion: quantity=2
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Tablet', 'price': 25000, 'quantity': 4}
+name=Tablet, price=25000, quantity=4, category=Electronics
+After conversion: quantity=4
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Accessories', 'name': 'Mouse', 'price': 500, 'quantity': 10}
+name=Mouse, price=500, quantity=10, category=Accessories
+After conversion: quantity=10
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Accessories', 'name': 'Keyboard', 'price': 1500, 'quantity': 5}
+name=Keyboard, price=1500, quantity=5, category=Accessories
+After conversion: quantity=5
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Monitor', 'price': 12000, 'quantity': 2}
+name=Monitor, price=12000, quantity=2, category=Electronics
+After conversion: quantity=2
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 123, 'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5, category=123
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': '', 'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5, category=
+============================================================
+REQUEST STARTED
+Got JSON data: {'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5, category=None
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': 'Electronics', 'name': 'Laptop', 'price': 50000, 'quantity': 5}
+name=Laptop, price=50000, quantity=5, category=Electronics
+After conversion: quantity=5
+Created product object
+Added to session
+Committed to database
+============================================================
+REQUEST STARTED
+Got JSON data: {'category': '  Mobile Devices  ', 'name': 'Phone', 'price': 30000, 'quantity': 3}
+name=Phone, price=30000, quantity=3, category=  Mobile Devices  
+After conversion: quantity=3
+Created product object
+Added to session
+Committed to database

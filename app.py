@@ -1,6 +1,6 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, jsonify, render_template, request
 
-from models import db, Product
+from models import Product, db  # noqa: E402
 
 print("=" * 60)
 print("APP.PY LOADED - THIS IS THE UPDATED VERSION")
@@ -130,19 +130,19 @@ def add_product():
         )
 
         with open('error_log.txt', 'a') as f:
-            f.write(f"Created product object\n")
+            f.write("Created product object\n")
             f.flush()
 
         db.session.add(product)
-        
+
         with open('error_log.txt', 'a') as f:
-            f.write(f"Added to session\n")
+            f.write("Added to session\n")
             f.flush()
 
         db.session.commit()
 
         with open('error_log.txt', 'a') as f:
-            f.write(f"Committed to database\n")
+            f.write("Committed to database\n")
             f.flush()
 
         return jsonify({
@@ -179,10 +179,10 @@ def get_products():
 # GET SINGLE PRODUCT
 # =========================
 
-@app.route('/products/<int:id>', methods=['GET'])
-def get_product(id):
+@app.route('/products/<int:product_id>', methods=['GET'])
+def get_product(product_id):
 
-    product = db.session.get(Product, id)
+    product = db.session.get(Product, product_id)
 
     if not product:
         return jsonify({
@@ -196,10 +196,10 @@ def get_product(id):
 # UPDATE PRODUCT
 # =========================
 
-@app.route('/products/<int:id>', methods=['PUT'])
-def update_product(id):
+@app.route('/products/<int:product_id>', methods=['PUT'])
+def update_product(product_id):
 
-    product = db.session.get(Product, id)
+    product = db.session.get(Product, product_id)
 
     if not product:
         return jsonify({
@@ -270,10 +270,10 @@ def update_product(id):
 # DELETE PRODUCT
 # =========================
 
-@app.route('/products/<int:id>', methods=['DELETE'])
-def delete_product(id):
+@app.route('/products/<int:product_id>', methods=['DELETE'])
+def delete_product(product_id):
 
-    product = db.session.get(Product, id)
+    product = db.session.get(Product, product_id)
 
     if not product:
         return jsonify({

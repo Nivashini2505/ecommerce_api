@@ -3,8 +3,8 @@
 # We use pytest to test if our API works correctly
 
 import pytest
-from app import app, db
 
+from app import app, db
 
 # =========================
 # TEST FIXTURE (Setup for each test)
@@ -46,16 +46,16 @@ def test_add_product_success(client):
         "quantity": 5,
         "category": "Electronics"
     }
-    
+
     # Send POST request to add product
     response = client.post('/products', json=new_product)
-    
+
     # Check if product was created successfully (201 = Created)
     assert response.status_code == 201
-    
+
     # Get the response data
     data = response.get_json()
-    
+
     # Verify that the product name is saved correctly
     assert data["product"]["name"] == "Laptop"
 
@@ -71,9 +71,9 @@ def test_missing_fields(client):
     incomplete_product = {
         "name": "Laptop"
     }
-    
+
     response = client.post('/products', json=incomplete_product)
-    
+
     # Should fail because required fields are missing
     assert response.status_code == 400
 
@@ -87,7 +87,7 @@ def test_missing_fields(client):
 def test_empty_body(client):
     # Send an empty JSON object
     response = client.post('/products', json={})
-    
+
     # Should fail because no data was provided
     assert response.status_code == 400
 
@@ -106,9 +106,9 @@ def test_invalid_price_type(client):
         "quantity": 5,
         "category": "Electronics"
     }
-    
+
     response = client.post('/products', json=invalid_product)
-    
+
     # Should fail because price is not a number
     assert response.status_code == 400
 
@@ -127,9 +127,9 @@ def test_negative_price(client):
         "quantity": 5,
         "category": "Electronics"
     }
-    
+
     response = client.post('/products', json=product_with_negative_price)
-    
+
     # Should fail because price is negative
     assert response.status_code == 400
 
@@ -148,9 +148,9 @@ def test_negative_quantity(client):
         "quantity": -1,  # Wrong! Quantity cannot be negative
         "category": "Electronics"
     }
-    
+
     response = client.post('/products', json=product_with_negative_quantity)
-    
+
     # Should fail because quantity is negative
     assert response.status_code == 400
 
@@ -169,9 +169,9 @@ def test_empty_name(client):
         "quantity": 2,
         "category": "Electronics"
     }
-    
+
     response = client.post('/products', json=product_with_empty_name)
-    
+
     # Should fail because name is empty
     assert response.status_code == 400
 
@@ -191,10 +191,10 @@ def test_duplicate_product(client):
         "category": "Electronics"
     }
     client.post('/products', json=product_data)
-    
+
     # Now try to add the same product again
     response = client.post('/products', json=product_data)
-    
+
     # Should fail because product already exists
     assert response.status_code == 409
 
@@ -213,16 +213,16 @@ def test_get_all_products(client):
         "quantity": 4,
         "category": "Electronics"
     })
-    
+
     # Now get all products
     response = client.get('/products')
-    
+
     # Should succeed
     assert response.status_code == 200
-    
+
     # Get the response data
     data = response.get_json()
-    
+
     # Should show 1 product in the list
     assert data["count"] == 1
 
@@ -241,10 +241,10 @@ def test_get_single_product(client):
         "quantity": 10,
         "category": "Accessories"
     })
-    
+
     # Get the first product (ID = 1)
     response = client.get('/products/1')
-    
+
     # Should succeed
     assert response.status_code == 200
 
@@ -258,7 +258,7 @@ def test_get_single_product(client):
 def test_product_not_found(client):
     # Try to get a product that doesn't exist (ID = 999)
     response = client.get('/products/999')
-    
+
     # Should fail because product doesn't exist
     assert response.status_code == 404
 
@@ -277,18 +277,18 @@ def test_update_product(client):
         "quantity": 5,
         "category": "Accessories"
     })
-    
+
     # Update the price of first product
     response = client.put('/products/1', json={
         "price": 2000
     })
-    
+
     # Should succeed
     assert response.status_code == 200
-    
+
     # Get the response data
     data = response.get_json()
-    
+
     # Verify that price was updated correctly
     assert data["product"]["price"] == 2000
 
@@ -307,10 +307,10 @@ def test_delete_product(client):
         "quantity": 2,
         "category": "Electronics"
     })
-    
+
     # Delete the first product
     response = client.delete('/products/1')
-    
+
     # Should succeed
     assert response.status_code == 200
 
@@ -324,7 +324,7 @@ def test_delete_product(client):
 def test_delete_non_existing_product(client):
     # Try to delete a product that doesn't exist
     response = client.delete('/products/999')
-    
+
     # Should fail because product doesn't exist
     assert response.status_code == 404
 
@@ -343,12 +343,12 @@ def test_invalid_category_type(client):
         "quantity": 5,
         "category": 123  # Wrong! Category should be text
     }
-    
+
     response = client.post('/products', json=invalid_product)
-    
+
     # Should fail because category is not text
     assert response.status_code == 400
-    
+
     # Also check the error message
     data = response.get_json()
     assert "Category must be string" in data["error"]
@@ -368,12 +368,12 @@ def test_empty_category(client):
         "quantity": 5,
         "category": ""  # Wrong! Category cannot be empty
     }
-    
+
     response = client.post('/products', json=product_with_empty_category)
-    
+
     # Should fail because category is empty
     assert response.status_code == 400
-    
+
     # Also check the error message
     data = response.get_json()
     assert "Category cannot be empty" in data["error"]
@@ -393,12 +393,12 @@ def test_missing_category_field(client):
         "quantity": 5
         # Missing category field
     }
-    
+
     response = client.post('/products', json=product_without_category)
-    
+
     # Should fail because category is missing
     assert response.status_code == 400
-    
+
     # Check the error message
     data = response.get_json()
     assert "All fields are required" in data["error"]
@@ -418,15 +418,15 @@ def test_add_product_with_valid_category(client):
         "quantity": 5,
         "category": "Electronics"
     }
-    
+
     response = client.post('/products', json=product_data)
-    
+
     # Should succeed
     assert response.status_code == 201
-    
+
     # Get the response data
     data = response.get_json()
-    
+
     # Verify that category was saved correctly
     assert data["product"]["category"] == "Electronics"
 
@@ -445,15 +445,15 @@ def test_category_with_whitespace(client):
         "quantity": 3,
         "category": "  Mobile Devices  "  # Has spaces before and after
     }
-    
+
     response = client.post('/products', json=product_data)
-    
+
     # Should succeed
     assert response.status_code == 201
-    
+
     # Get the response data
     data = response.get_json()
-    
+
     # Verify that spaces were trimmed correctly
     assert data["product"]["category"] == "Mobile Devices"
 
